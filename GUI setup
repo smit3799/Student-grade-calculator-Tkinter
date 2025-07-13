@@ -1,0 +1,26 @@
+#GUI Setup:
+root = tk.Tk()  #this root variable works as container here which contains all the features of tkinter like button,labels etc
+root.title("Student Grade Calculator") # this give the label to GUI
+root.geometry("400x250") # this line decide GUI display size
+root.resizable(False,False) # this line did not allow use resize the display height and width of window because we set the value as FALSE
+
+#Name Entry:
+tk.Label(root, text="Student Name: ").pack(pady=5) # here pack is the geometry manager who decides the widgets places in the window.
+name_entry = tk.Entry(root, width= 30) # here we just define the button name but last pack() function will show it our GUI
+name_entry.pack() # this pack() function display button or label or entry box in the GUI
+
+#Grade Entry:
+tk.Label(root, text="Enter Grade  (space-separated):").pack(pady=5)
+grade_entry = tk.Entry(root,width=30)
+grade_entry.pack()
+
+#sumbit button
+tk.Button(root, text="Calculate Grade", command=submit_grades).pack(pady=10) # we pass submit_grade to command means that whatever calculation done in submit function
+                                                                              # it will automatically reflect in our GUI
+#Reuslt Display
+result_text = tk.StringVar()  # here we create the variable called result_text which contains some values
+tk.Label(root, textvariable=result_text, fg= "blue").pack(pady=10) #while this result_text show whatever value currently inside of result_text
+
+root.mainloop() # this line starting your GUI app and keeps it running until the user closes it manually.
+
+
