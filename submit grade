@@ -1,0 +1,14 @@
+def submit_grades():
+    name = name_entry.get() #this will get the input name from the user by the use of get() function
+    grade_input = grade_entry.get() #this will get the input grades from the user by the use of get() function
+    if not name.isalpha(): # checks if the name contains only alphabetic characters (A - Z)
+        result_text.set("Please enter the valid student name (Letter's Only)")
+        return
+    try:
+         grades = list(map(float,grade_input.split())) #this converts each string to float then map object convert into the usable list
+         average = calculate_grade(grades)
+         new_grade = grade(average)
+
+         result_text.set(f"{name}'s average is {average:.2f} -> Grade: {new_grade}") #we can change the content of our GUI by using result_text.set() without creating another content
+    except ValueError:
+        result_text.set("Please enter the Valid numbers for grades. ")
