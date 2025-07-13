@@ -1,0 +1,2 @@
+def calculate_grade(grade_list):
+    return sum(grade_list)/len(grade_list)
